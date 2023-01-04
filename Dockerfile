@@ -15,6 +15,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
 USER node
+ENV NODE_ENV=production
 WORKDIR /home/node
 COPY --from=build --chown=node:node /home/node/node_modules node_modules
 COPY --from=build --chown=node:node /home/node/package*.json .
